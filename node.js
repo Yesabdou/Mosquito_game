@@ -37,7 +37,7 @@ function Moustique(x, y, Xdir, Ydir) {
 
   // tuer des moustiques _______________________________________________________________________________________
   mosquito.addEventListener("click", () => {
-    new Audio("/Sons/smash.mp3").play();
+    new Audio("./Sons/smash.mp3").play();
     console.log("splaaash");
     score = document.querySelector("h1");
 
@@ -114,7 +114,7 @@ bonus.addEventListener("click", () => {
   setTimeout(killAll, 1000);
   bonus.remove();
   progressBar.style.visibility = "hidden";
-
+  new Audio("./Sons/woosh.mp3").play();
   let explosion = document.createElement("span"); // on cree un span vide,
   document.body.appendChild(explosion); // on le colle au body
   explosion.innerHTML =
@@ -176,6 +176,8 @@ let intervalId = setInterval(() => {
     let finalScore = score.innerHTML;
     console.log("final score   :" + finalScore);
 
+    const png = document.querySelector(".png");
+    png.src = "./fin.gif";
     //arrrete la fonction et supprime le body et ajoute game over
   }
 }, 125);
