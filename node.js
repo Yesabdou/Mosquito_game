@@ -36,10 +36,11 @@ function Moustique(x, y, Xdir, Ydir) {
   };
 
   // tuer des moustiques _______________________________________________________________________________________
+  const score = document.querySelector("h1");
+
   mosquito.addEventListener("click", () => {
     new Audio("./Sons/smash.mp3").play();
     console.log("splaaash");
-    score = document.querySelector("h1");
 
     count++;
     console.log(count);
@@ -76,7 +77,7 @@ function ArrOfmosquitos(nb) {
     arrMosquito.forEach((mos) => {
       mos.update();
     });
-  }, 30);
+  }, 35);
 }
 ArrOfmosquitos(10);
 //pour injecter le tableau  et jouer toutes les 20ms ___________________________________________________________________________________________________________________________________________
@@ -105,14 +106,15 @@ window.addEventListener("mousemove", (e) => {
   splash.style.left = X + "px";
   splash.style.top = Y + "px";
 });
-
+const message = document.querySelector(".message");
 // BONUS: __________________________________________________________;
 const bonus = document.querySelector(".bonus");
-console.log;
+
 bonus.addEventListener("click", () => {
   progressBar = document.querySelector("h3");
   setTimeout(killAll, 1000);
   bonus.remove();
+  message.remove();
   progressBar.style.visibility = "hidden";
   new Audio("./Sons/woosh.mp3").play();
   let explosion = document.createElement("span"); // on cree un span vide,
@@ -147,6 +149,8 @@ let intervalId = setInterval(() => {
   if (counter === 360) {
     progressBar.style.visibility = "hidden";
     bonus.style.visibility = "hidden";
+
+    message.remove();
   }
   if (counter === 479) {
     new Audio("./Sons/routine.mp3").play();
@@ -161,21 +165,22 @@ let intervalId = setInterval(() => {
   }
 
   if (counter === randomCount2) {
-    ArrOfmosquitos(Math.floor(Math.random() * 9 + 2));
+    ArrOfmosquitos(Math.floor(Math.random() * 8 + 2));
   }
   if (counter === randomCount3) {
-    ArrOfmosquitos(Math.floor(Math.random() * 9 + 2));
+    ArrOfmosquitos(Math.floor(Math.random() * 7 + 2));
   }
 
   if (counter === 480) {
     //clearInterval(intervalId);
     clearspan = document.querySelectorAll(".mosquito");
     let mosLeft = clearspan.length;
-    // console.log("moustiques restants " + mosLeft);
     killAll();
     horloge.remove();
+
     score = document.querySelector("h1");
     let finalScore = score.innerHTML;
+    score.style.visibility = "hidden";
     const png = document.querySelector(".png");
     png.src = ".";
     const final = document.createElement("span"); // on cree un span vide,
