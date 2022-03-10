@@ -9,7 +9,7 @@ function Moustique(x, y, Xdir, Ydir) {
   let mosquito1 = document.createElement("span"); // on cree un span vide,
   document.body.appendChild(mosquito1); // on le colle au body
   mosquito1.innerHTML =
-    '<img class="mosquito" src="/image/eeeee.gif" alt="moustique " />'; // je met dedans mon image
+    '<img class="mosquito" src="./image/eeeee.gif" alt="moustique " />'; // je met dedans mon image
   let mosquito = mosquito1.querySelector(".mosquito"); // je selectionne mon image /!\ attention au nom de classes, il faut selectionner la class à l'intérieur du span
 
   this.x = x;
@@ -115,7 +115,7 @@ bonus.addEventListener("click", () => {
   let explosion = document.createElement("span"); // on cree un span vide,
   document.body.appendChild(explosion); // on le colle au body
   explosion.innerHTML =
-    '<img class="tornado" src="/image/tornado.gif" alt="" />';
+    '<img class="tornado" src="./image/tornado.gif" alt="" />';
 });
 
 // les heures qui défilent
