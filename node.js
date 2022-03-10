@@ -148,7 +148,7 @@ let intervalId = setInterval(() => {
     bonus.style.visibility = "hidden";
   }
   if (counter === 470) {
-    new Audio("/Sons/alarme.mp3").play();
+    new Audio("./Sons/alarme.mp3").play();
   }
 
   if (minutes <= 9) {
