@@ -1,10 +1,10 @@
-// Music
-let droite = document.querySelector(".droite");
-let gauche = document.querySelector(".gauche");
-// droite.play();
-// gauche.play();
 let count = 0;
+
+const anim = document.querySelector(".anim");
+anim.src = "./background_elements/ezgif.gif";
+
 //fontion principale
+
 function Moustique(x, y, Xdir, Ydir) {
   let mosquito1 = document.createElement("span"); // on cree un span vide,
   document.body.appendChild(mosquito1); // on le colle au body
@@ -132,9 +132,10 @@ let minutes = 0;
 let heures = 0;
 let prog = 360;
 
-let horloge = document.querySelector("h2");
+const horloge = document.querySelector("h2");
 let intervalId = setInterval(() => {
   counter++;
+  console.log(counter);
   progressBar = document.querySelector("h3");
   prog--;
   progressBar.style.width = prog + "px";
@@ -147,8 +148,8 @@ let intervalId = setInterval(() => {
     progressBar.style.visibility = "hidden";
     bonus.style.visibility = "hidden";
   }
-  if (counter === 470) {
-    new Audio("./Sons/alarme.mp3").play();
+  if (counter === 479) {
+    new Audio("./Sons/routine.mp3").play();
   }
 
   if (minutes <= 9) {
@@ -167,18 +168,41 @@ let intervalId = setInterval(() => {
   }
 
   if (counter === 480) {
-    clearInterval(intervalId);
+    //clearInterval(intervalId);
     clearspan = document.querySelectorAll(".mosquito");
     let mosLeft = clearspan.length;
-    console.log("moustiques restants " + mosLeft);
+    // console.log("moustiques restants " + mosLeft);
     killAll();
+    horloge.remove();
     score = document.querySelector("h1");
     let finalScore = score.innerHTML;
-    console.log("final score   :" + finalScore);
-
     const png = document.querySelector(".png");
-    png.src = "./fin.gif";
-    //arrrete la fonction et supprime le body et ajoute game over
+    png.src = ".";
+    const final = document.createElement("span"); // on cree un span vide,
+    document.body.appendChild(final);
+
+    final.innerHTML =
+      '<img class="final" src="./background_elements/ezg.gif" alt="final" />';
+
+    let Scorefinal = document.createElement("span");
+    document.body.appendChild(Scorefinal);
+    Scorefinal.classList.add("Scorefinal");
+
+    if (finalScore < mosLeft * 3) {
+      Scorefinal.textContent =
+        " You killed < " +
+        finalScore +
+        " >mosquitos during this night and you missed <" +
+        mosLeft +
+        "> you are going to douiller today ";
+    } else {
+      Scorefinal.textContent =
+        " You killed < " +
+        finalScore +
+        "> mosquitos during this night and you missed < " +
+        mosLeft +
+        "> you will probably have a nice day ";
+    }
   }
 }, 125);
 
@@ -187,8 +211,6 @@ let intervalId = setInterval(() => {
 // pour l'animation finale : la mettre par dessus en hidden avec de l'opacité peut etre, et à 8h et changer la proprieté
 function killAll() {
   clearspan = document.querySelectorAll(".mosquito");
-  console.log(clearspan);
-
   clearspan.forEach((el) => {
     el.remove();
   });

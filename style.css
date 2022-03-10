@@ -8,6 +8,7 @@ body {
   overflow: hidden;
   resize: horizontal;
   height: 100vh;
+  background-color: black;
   /* background-image: url(/background_elements/2336.png);
   /* background-position: cover; */
   /* background-size: cover;
@@ -18,13 +19,14 @@ body {
 h2 {
   position: absolute;
   z-index: 2;
-  color: rgb(253, 6, 6);
+  color: rgb(21, 180, 167);
   font-family: DS-DIGI;
   top: 34.5vw;
   left: 13.5vw;
   font-size: 3vw;
-  text-shadow: 0 0 5px rgb(90, 3, 3), 0 0 10px #fff, 0 0 15px #fff,
-    0 0 20px #f30f0f, 0 0 35px #228dff, 0 0 40px #c91414;
+  text-shadow: 0 0 5px rgb(7, 53, 71), 0 0 10px rgba(255, 255, 255, 0.356),
+    0 0 15px rgba(255, 255, 255, 0.377), 0 0 20px #1ba885, 0 0 35px #1ba885,
+    0 0 40px #1ba885;
 }
 h1 {
   text-align: center;
@@ -96,7 +98,7 @@ h1 {
 }
 @keyframes move {
   to {
-    left: 2000px;
+    left: 3000px;
   }
 }
 
@@ -135,4 +137,47 @@ h3 {
   to {
     background-color: #fff;
   }
+}
+
+.Scorefinal {
+  position: absolute;
+  width: 90vw;
+  height: 80vh;
+  left: 5vw;
+  background-color: rgba(255, 255, 255, 0.788);
+  border-radius: 30px;
+  top: -410vw;
+
+  animation: end 2s;
+  animation-fill-mode: forwards;
+  animation-delay: 25s;
+  z-index: 1140;
+  font-size: 10rem;
+  text-align: center;
+}
+@keyframes end {
+  to {
+    top: 6vw;
+  }
+}
+
+.final {
+  position: absolute;
+  top: 5%;
+  width: 210vh;
+}
+
+.message {
+  position: absolute;
+  color: #ff0606;
+
+  border: #fff;
+  font-size: 2rem;
+  height: 30px;
+  width: 360px;
+
+  border-radius: 3px;
+  z-index: 5;
+  bottom: 5.5vw;
+  left: 55vw;
 }
