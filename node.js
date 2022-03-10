@@ -112,6 +112,7 @@ console.log;
 bonus.addEventListener("click", () => {
   setTimeout(killAll, 1000);
   bonus.remove();
+
   let explosion = document.createElement("span"); // on cree un span vide,
   document.body.appendChild(explosion); // on le colle au body
   explosion.innerHTML =
