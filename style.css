@@ -117,3 +117,22 @@ h1 {
   height: 60vw;
   z-index: -1;
 }
+
+h3 {
+  position: absolute;
+  border: #fff;
+  border-style: ridge;
+  height: 30px;
+  width: 360px;
+  background-color: red;
+  border-radius: 3px;
+  z-index: 5;
+  bottom: 2vw;
+  left: 55vw;
+  animation: warning 1.5s 25s 20;
+}
+@keyframes warning {
+  to {
+    background-color: #fff;
+  }
+}

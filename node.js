@@ -110,8 +110,10 @@ window.addEventListener("mousemove", (e) => {
 const bonus = document.querySelector(".bonus");
 console.log;
 bonus.addEventListener("click", () => {
+  progressBar = document.querySelector("h3");
   setTimeout(killAll, 1000);
   bonus.remove();
+  progressBar.style.visibility = "hidden";
 
   let explosion = document.createElement("span"); // on cree un span vide,
   document.body.appendChild(explosion); // on le colle au body
@@ -128,19 +130,27 @@ let randomCount1 = Math.floor(Math.random() * 100 - 50) + 50;
 let counter = 0;
 let minutes = 0;
 let heures = 0;
+let prog = 360;
 
 let horloge = document.querySelector("h2");
 let intervalId = setInterval(() => {
   counter++;
-
+  progressBar = document.querySelector("h3");
+  prog--;
+  progressBar.style.width = prog + "px";
   minutes = counter % 60;
-
+  //console.log(` 0${heures} : ${minutes} eee  *${counter}`);
   if (minutes === 0) {
     heures++;
+  }
+  if (counter === 360) {
+    progressBar.style.visibility = "hidden";
+    bonus.style.visibility = "hidden";
   }
   if (counter === 470) {
     new Audio("/Sons/alarme.mp3").play();
   }
+
   if (minutes <= 9) {
     horloge.textContent = ` 0${heures} : 0${minutes}`;
   } else horloge.textContent = ` 0${heures} : ${minutes}`;
@@ -148,6 +158,7 @@ let intervalId = setInterval(() => {
   if (counter === randomCount1) {
     ArrOfmosquitos(Math.floor(Math.random() * 9 + 2));
   }
+
   if (counter === randomCount2) {
     ArrOfmosquitos(Math.floor(Math.random() * 9 + 2));
   }
@@ -157,7 +168,13 @@ let intervalId = setInterval(() => {
 
   if (counter === 480) {
     clearInterval(intervalId);
+    clearspan = document.querySelectorAll(".mosquito");
+    let mosLeft = clearspan.length;
+    console.log("moustiques restants " + mosLeft);
     killAll();
+    score = document.querySelector("h1");
+    let finalScore = score.innerHTML;
+    console.log("final score   :" + finalScore);
 
     //arrrete la fonction et supprime le body et ajoute game over
   }
@@ -169,9 +186,7 @@ let intervalId = setInterval(() => {
 function killAll() {
   clearspan = document.querySelectorAll(".mosquito");
   console.log(clearspan);
-  score = document.querySelector("h1");
-  let finalScore = score.innerHTML;
-  console.log(finalScore);
+
   clearspan.forEach((el) => {
     el.remove();
   });
