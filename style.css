@@ -154,6 +154,7 @@ h3 {
   z-index: 1140;
   font-size: 10rem;
   text-align: center;
+  padding: 40px;
 }
 @keyframes end {
   to {
@@ -162,9 +163,10 @@ h3 {
 }
 
 .final {
+  height: 100%;
+
   position: absolute;
-  top: 5%;
-  width: 210vh;
+  top: 2.5%;
 }
 
 .message {
