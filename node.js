@@ -80,6 +80,7 @@ function ArrOfmosquitos(nb) {
   }, 35);
 }
 ArrOfmosquitos(10);
+
 //pour injecter le tableau  et jouer toutes les 20ms ___________________________________________________________________________________________________________________________________________
 // peut faire la vitesse
 
@@ -127,7 +128,7 @@ bonus.addEventListener("click", () => {
 let nb = Math.floor(Math.random() * 9 + 2);
 let randomCount2 = Math.floor(Math.random() * 300 + 160);
 let randomCount3 = Math.floor(Math.random() * (480 - 250) + 250);
-let randomCount1 = Math.floor(Math.random() * 100 - 50) + 50;
+let randomCount1 = Math.floor(Math.random() * 100 - 70) + 50;
 
 let counter = 0;
 let minutes = 0;
@@ -187,7 +188,7 @@ let intervalId = setInterval(() => {
     document.body.appendChild(final);
 
     final.innerHTML =
-      '<img class="final" src="./background_elements/ezg.gif" alt="final" />';
+      '<img class="final" src="./background_elements/background.gif" alt="final" />';
 
     let Scorefinal = document.createElement("span");
     document.body.appendChild(Scorefinal);
